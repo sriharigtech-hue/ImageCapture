@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun labelImage(bitmap: Bitmap) {
         val inputImage = InputImage.fromBitmap(bitmap, 0)
         imageLabeler.process(inputImage).addOnSuccessListener { labels ->
@@ -78,13 +79,11 @@ class MainActivity : AppCompatActivity() {
             labelText.text = "Error: ${e.message}"
         }
 
-
-
     }
 
 
     private fun displayLabel(labels: List<ImageLabel>) {
-        if (labels.isNotEmpty()){
+        if (labels.isNotEmpty()) {
             val mostConfidentLabel = labels[0]
             labelText.text = "${mostConfidentLabel.text}"
         } else {
